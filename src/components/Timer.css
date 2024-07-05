@@ -1,0 +1,19 @@
+/* PomodoroTimer.css */
+/* ... (existing styles) ... */
+
+.time-control-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Optional spacing */
+  }
+  
+  .adjust-button {
+    background-color: #f0f0f0; /* Adjust as needed */
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Adjust as needed */
+  }
+  
