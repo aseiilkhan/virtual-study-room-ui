@@ -3,7 +3,7 @@ import { create } from 'zustand';
 import axios from 'axios'; // Assuming you're using axios for API requests
 import { StudyRoom } from './components/StudyRoom'; // Import your StudyRoom component
 import './App.css'; // Import your CSS file for styling (optional)
-
+import { BrowserRouter, useLocation } from 'react-router-dom'
 
 // Interface to define the structure of your app's state
 interface AppState {
@@ -16,7 +16,7 @@ interface AppState {
 }
 
 // Create your Zustand store
-export const useStore = create<AppState>((set) => ({
+  export const useStore = create<AppState>((set) => ({
     preferences: {
         theme: 'light', // Default theme
         layout: 'default', // Default layout
@@ -44,9 +44,16 @@ function App() {
         fetchPreferences(userId); // Fetch initial preferences when the component mounts
     }, [fetchPreferences]); // Include fetchPreferences in the dependency array
 
+    
+    
     return (
+
         <div className="app">
-            <StudyRoom /> 
+          <React.StrictMode>
+            <BrowserRouter> {/* Wrap your App component with BrowserRouter */}
+              <StudyRoom /> 
+            </BrowserRouter>
+          </React.StrictMode>
         </div>
     );
 }

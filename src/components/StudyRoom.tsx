@@ -10,6 +10,7 @@ import {BackgroundSelector} from './BackgroundSelector';
 import {CustomizableLayout} from './CustomizableLayout';
 import './StudyRoom.css';  // Create this file for styling
 import { stat } from 'fs';
+import { useLocation } from 'react-router-dom';
 
 // Zustand Store (You'll need to define this separately)
 interface StudyRoomState {
@@ -32,7 +33,16 @@ export const useStudyRoomStore = create<StudyRoomState>((set) => ({
 
 export function StudyRoom() {
   const { theme, layout, backgroundImage, setTheme, setLayout, setBackgroundImage } = useStudyRoomStore();
-
+  const location = useLocation();
+    useEffect(() => {
+      const queryParams = new URLSearchParams(location.search);
+      const accessToken = queryParams.get('access_token');
+  
+      if (accessToken) {
+        // Store the access token in localStorage
+        localStorage.setItem('spotifyAccessToken', accessToken);
+      }
+    });
   useEffect(() => {
     // Fetch initial preferences from the backend here
     axios.get('/api/preferences?userId=1') // Replace 1 with the actual user ID

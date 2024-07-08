@@ -14,7 +14,7 @@ interface CustomizableLayoutProps {
 }
 
 export function CustomizableLayout({ layout, onLayoutChange, children }: CustomizableLayoutProps) {
-  layout = ['timer', 'notes']; // Default layout if no layout is provided
+  layout = ['spotify', 'youtube']; // Default layout if no layout is provided
   return (
     <div className="customizable-layout">
       <h5>Customizable Layout</h5>
@@ -27,7 +27,7 @@ export function CustomizableLayout({ layout, onLayoutChange, children }: Customi
                 height: 200
             }}
             key={appId}
-        >
+        > 
             {/* Render the app component based on the appId */}
             {appId === 'timer' && <Timer />}
             {appId === 'notes' && <Notes />}
