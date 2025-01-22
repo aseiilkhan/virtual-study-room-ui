@@ -1,0 +1,297 @@
+.spotify-player{
+}
+.playback {
+    background-color: black;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 1000px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    --text-bright-accent: #1ed760;
+    --text-subdued: #b3b3b3;
+}
+
+.album-info {
+    flex-grow: 30;
+    flex-basis: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.track-info {
+    max-width: 166px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.player{
+    flex-grow: 40;
+    flex-basis: 0;
+}
+
+.album-cover img {
+    width: 60px;
+    height: 60px;
+}
+
+.album img {
+    border-radius: 0.5rem;
+}
+
+.sound {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 30;
+    flex-basis: 0;
+}
+.sound img {
+    width: 20px;
+    height: 20px;
+}
+.playback-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sound-bar {
+    width: 80%;
+    background-color: black;
+    cursor: pointer;
+}
+.volume-icon {
+    fill: currentcolor;
+    width: var(--encore-graphic-size-informative-smaller, 16px);
+    height: var(--encore-graphic-size-informative-smaller, 16px);
+}
+.sound-bar::-webkit-slider-runnable-track {
+    /* background-color: #ddd; */
+    border-radius: 100px;
+    height: 0.2rem;
+}
+
+.sound-bar::-webkit-slider-thumb {
+    appearance: none;
+    height: 0.8rem;
+    width: 0.8rem;
+    /* background-color: #ddd; */
+    border-radius: 0.5rem;
+    margin-top: -5px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.player-control-icon {
+    height: 1rem;
+    opacity: 0.7;
+}
+
+.player-control-icon:hover {
+    opacity: 1;
+}
+
+.pause {
+    opacity: 1;
+    height: 2rem;
+}
+
+.playback-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-bar {
+    width: 70%;
+    appearance: none;
+    background-color: white;
+    cursor: pointer;
+}
+.play{
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    background-color: var(--background-base, #ffffff);
+    color: var(--text-base, #000000);
+    display: flex;
+    border-radius: var(--encore-button-corner-radius, 9999px);
+    font-size: inherit;
+    min-block-size: var(--encore-control-size-smaller, 32px);
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    inline-size: var(--encore-control-size-smaller, 32px);
+    block-size: var(--encore-control-size-smaller, 32px);
+    transition-property: background-color, transform;
+    transition-duration: 33ms;
+}
+.shuffle-button{
+
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    border: 0px;
+    border-radius: var(--encore-button-corner-radius, 9999px);
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    touch-action: manipulation;
+    transition-duration: 33ms;
+    transition-property: background-color, border-color, color, box-shadow, filter, transform;
+    user-select: none;
+    vertical-align: middle;
+    transform: translate3d(0px, 0px, 0px);
+    color: var(--text-bright-accent, #107434);
+    min-inline-size: 0px;
+    min-block-size: var(--encore-control-size-smaller, 32px);
+    padding-block: var(--encore-spacing-tighter-2, 8px);
+    padding-inline: var(--encore-spacing-tighter-2, 8px);
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+}
+
+.shuffle-button svg{
+    fill: currentcolor;
+    width: var(--encore-graphic-size-decorative-smaller, 16px);
+    height: var(--encore-graphic-size-decorative-smaller, 16px);
+}
+
+.shuffle-activated:before{
+    background-color: currentcolor;
+    border-radius: 50%;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    width: 4px;
+    inline-size: 4px;
+    height: 4px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.shuffle-deactivated{
+    color: var(--text-subdued, #656565);
+}
+
+.repeat-button{
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    border: 0px;
+    border-radius: var(--encore-button-corner-radius, 9999px);
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    touch-action: manipulation;
+    transition-duration: 33ms;
+    transition-property: background-color, border-color, color, box-shadow, filter, transform;
+    user-select: none;
+    vertical-align: middle;
+    transform: translate3d(0px, 0px, 0px);
+    color: var(--text-bright-accent, #107434);
+    min-inline-size: 0px;
+    min-block-size: var(--encore-control-size-smaller, 32px);
+    padding-block: var(--encore-spacing-tighter-2, 8px);
+    padding-inline: var(--encore-spacing-tighter-2, 8px);
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.repeat-off {
+    color: var(--text-subdued, #656565);
+}
+
+.repeat-context:before, .repeat-track:before {
+    background-color: currentcolor;
+    border-radius: 50%;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    width: 4px;
+    inline-size: 4px;
+    height: 4px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+}
+.repeat-button svg{
+    fill: currentcolor;
+    width: var(--encore-graphic-size-decorative-smaller, 16px);
+    height: var(--encore-graphic-size-decorative-smaller, 16px);
+}
+.play svg {
+    fill: currentcolor;
+    width: var(--encore-graphic-size-decorative-smaller, 16px);
+    height: var(--encore-graphic-size-decorative-smaller, 16px)
+}
+.songliked svg{
+    fill: currentcolor;
+    width: var(--encore-graphic-size-decorative-smaller, 16px);
+    height: var(--encore-graphic-size-decorative-smaller, 16px)
+}
+.progress-bar::-webkit-slider-runnable-track {
+    /* background-color: #ddd; */
+    border-radius: 100px;
+    height: 0.2rem;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    margin-top: -6px;
+    background-color: #1bd760;
+    border-radius: 50%;
+}
+
+/* For Webkit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000;
+    /* Track background color */
+}
+
+::-webkit-scrollbar-thumb {
+    /* background-color: #ddd; */
+    /* Thumb color */
+    border-radius: 4px;
+    /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #17a15e;
+    /* Hovered thumb color */
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #128e50;
+    /* Pressed thumb color */
+}

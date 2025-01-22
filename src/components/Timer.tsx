@@ -3,7 +3,7 @@ import { stat } from 'fs';
 import React, { useState, useEffect, useRef } from 'react';
 import { BsFillPlayFill, BsPauseFill, BsArrowRepeat, BsStopFill, BsStop, BsPlay, BsPlayFill } from 'react-icons/bs';
 import { create } from 'zustand';
-
+import './Timer.css';
 // Interface to define the structure of your app's state
 interface TimerState {
     timerMode: 'work' | 'break';
@@ -23,9 +23,9 @@ interface TimerState {
 
 export const useTimerStore = create<TimerState>((set) => ({
     timerMode: 'work',
-    timeLeft: 10*60, // 25 minutes
+    timeLeft: 25*60, // 25 minutes
     isRunning: false,
-    workMinutes: 10,
+    workMinutes: 25,
     breakMinutes: 5,
     isPaused: true,
     setTimerMode: (timerMode) => set({ timerMode }),
@@ -159,23 +159,23 @@ function Timer() {
       setIsPaused(false);
   };
   return (
-    <div className="pomodoro-timer">
-      <h2>{timerMode === 'work' ? 'Work Time' : 'Break Time'}</h2>
+    <div className="module personal-timer">
+      <h2 className='module-header'>{timerMode === 'work' ? 'Work Time' : 'Break Time'}</h2>
       {
         !isRunning && (
           <div>
-            <div className="time-control-group">
-              <label htmlFor="work-duration">Work:</label>
-              <button className="adjust-button" onClick={handleDecreaseWorkTime}>-</button>
-              <span className="time-display">{workMinutes} min</span>
-              <button className="adjust-button" onClick={handleIncreaseWorkTime}>+</button>
+              <div className='mode-label'>Work time(min):</div>
+            <div className='timer-controls'>
+              <button className="time-adjust-button time-left-button" onClick={handleDecreaseWorkTime}>-</button>
+              <span className="timer-display">{workMinutes} min</span>
+              <button className="time-adjust-button time-right-button" onClick={handleIncreaseWorkTime}>+</button>
             </div>
 
-            <div className="time-control-group">
-              <label htmlFor="break-duration">Break:</label>
-              <button className="adjust-button" onClick={handleDecreaseBreakTime}>-</button>
-              <span className="time-display">{breakMinutes} min</span>
-              <button className="adjust-button" onClick={handleIncreaseBreakTime}>+</button>
+            <div className='mode-label'>Break time(min):</div>
+            <div  className="timer-controls">
+              <button className="time-adjust-button time-left-button" onClick={handleDecreaseBreakTime}>-</button>
+              <span className="timer-display">{breakMinutes} min</span>
+              <button className="time-adjust-button time-right-button" onClick={handleIncreaseBreakTime}>+</button>
             </div>
           </div>
         )

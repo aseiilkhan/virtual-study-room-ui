@@ -1,19 +1,35 @@
-/* PomodoroTimer.css */
-/* ... (existing styles) ... */
 
-.time-control-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Optional spacing */
-  }
-  
-  .adjust-button {
-    background-color: #f0f0f0; /* Adjust as needed */
+
+.mode-label{
+    text-align: center;
+}
+
+.personal-timer{
+    width: 250px;
+}
+
+.time-adjust-button{
+    background-color: inherit;
+    color: rgb(255, 255, 255);
     border: none;
-    padding: 5px 10px;
-    margin: 0 5px;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 18px; /* Adjust as needed */
-  }
-  
+    min-width: 60px;
+    max-width: 60px;
+    min-height: 40px;
+}
+
+.time-left-button{
+    align-items: left;
+}
+
+.time-right-button{
+    align-items: right;
+}
+
+.timer-controls{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

@@ -32,28 +32,27 @@ function Notes() {
   };
 
   return (
-    <div className="notes-container">
-      <h2>Notes</h2>
+    <div className="module">
+      <div className="module-header">Notes</div>
 
       {/* New Note Input Area */}
       <div className="new-note">
-        <textarea
+        <textarea className='new-note-box'
           placeholder="Enter a new note..."
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
         />
-        <button onClick={handleAddNote}>Add</button>
+        <button onClick={handleAddNote} className="add-button">Add</button>
       </div>
 
       {/* Existing Notes List */}
       <div className="notes-list">
         {notes.map((note, index) => (
           <div className="note" key={index}>
-            <textarea 
+            <textarea className='note-box' readOnly={true}
               value={note} 
-              onChange={(e) => handleNoteChange(index, e.target.value)} 
             />
-            <button onClick={() => handleDeleteNote(index)}>Delete</button>
+            <button onClick={() => handleDeleteNote(index)} className="delete-button">Delete</button>
           </div>
         ))}
       </div>

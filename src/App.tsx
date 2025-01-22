@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { create } from 'zustand';
 import axios from 'axios'; // Assuming you're using axios for API requests
-import { StudyRoom } from './components/StudyRoom'; // Import your StudyRoom component
+import { StudyRoom, useStudyRoomStore } from './components/StudyRoom'; // Import your StudyRoom component
 import './App.css'; // Import your CSS file for styling (optional)
 import { BrowserRouter, useLocation } from 'react-router-dom'
+import AuthPage from './components/AuthPage';
 
 // Interface to define the structure of your app's state
 interface AppState {
@@ -44,14 +45,17 @@ function App() {
         fetchPreferences(userId); // Fetch initial preferences when the component mounts
     }, [fetchPreferences]); // Include fetchPreferences in the dependency array
 
-    
+    const {isAuthenticated, setIsAuthenticated, isLoading, setIsLoading} = useStudyRoomStore();
     
     return (
 
         <div className="app">
           <React.StrictMode>
-            <BrowserRouter> {/* Wrap your App component with BrowserRouter */}
-              <StudyRoom /> 
+            <BrowserRouter>
+                {
+                    isAuthenticated? <StudyRoom /> : <AuthPage />
+                }
+                
             </BrowserRouter>
           </React.StrictMode>
         </div>
